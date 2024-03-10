@@ -11,13 +11,14 @@ import platform.Foundation.NSSearchPathForDirectoriesInDomains
 import platform.Foundation.NSUserDomainMask
 
 fun MainViewController() = ComposeUIViewController {
+
     CompositionLocalProvider(
         LocalImageLoader provides remember { generateImageLoader() },
     ) {
         App()
     }
-}
 
+}
 
 fun generateImageLoader(): ImageLoader {
     return ImageLoader {

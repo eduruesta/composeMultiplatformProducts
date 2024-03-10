@@ -43,7 +43,6 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
-            implementation(compose.material3)
             implementation(compose.ui)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
@@ -57,11 +56,36 @@ kotlin {
             implementation(libs.mvvm.core) // only ViewModel, EventsDispatcher, Dispatchers.UI
             api(libs.image.loader)
 
+            //Voyage dependencies
+            val voyagerVersion = "1.0.0"
+            implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+            implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
+            implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
+
+            implementation ("com.google.maps.android:maps-compose:4.3.3")
+            implementation("com.google.android.gms:play-services-maps:17.0.1")
+
+
+            // Optionally, you can include the Compose utils library for Clustering,
+            // Street View metadata checks, etc.
+            implementation ("com.google.maps.android:maps-compose-utils:4.3.3")
+
+            // Optionally, you can include the widgets library for ScaleBar, etc.
+            implementation ("com.google.maps.android:maps-compose-widgets:4.3.3")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
         }
         androidMain.dependencies {
+            implementation ("com.google.maps.android:maps-compose:4.3.3")
+            implementation("com.google.android.gms:play-services-maps:17.0.1")
+
+            // Optionally, you can include the Compose utils library for Clustering,
+            // Street View metadata checks, etc.
+            implementation ("com.google.maps.android:maps-compose-utils:4.3.3")
+
+            // Optionally, you can include the widgets library for ScaleBar, etc.
+            implementation ("com.google.maps.android:maps-compose-widgets:4.3.3")
             implementation(libs.ktor.client.android)
         }
 
